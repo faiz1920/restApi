@@ -12,10 +12,10 @@ const app = express();
 
 
 // Import Models
-Customer = require('./models/customer.model');
+User = require('./models/user.model');
 
 //Import Routes
-const customerRoute = require('./routes/customer.route');
+const userRoute = require('./routes/user.route');
 
 
 
@@ -27,14 +27,16 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(cors());
 
-app.use('/api', customerRoute);
+app.use('/api', userRoute);
 
 
 
 
 // Database Connection
 //Set up default mongoose connection
-const mongoDBUrl = 'mongodb://localhost/test';
+// const mongoDBUrl = 'mongodb://localhost/test';
+const mongoDBUrl
+ = 'mongodb+srv://developer:teamKryoTek.007@kryotek-mongo-cbqnm.mongodb.net/demo?retryWrites=true';
 mongoose.connect(mongoDBUrl);
 // Get Mongoose to use the global promise library
 mongoose.Promise = global.Promise;
